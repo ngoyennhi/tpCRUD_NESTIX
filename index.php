@@ -35,15 +35,20 @@
         include 'model/connection.php';
         //we include our connection file
         $pdo = new Connection();
+         //we connect to database
         $pdo->getConnection();
-        //we connect to database
+
+
+        //we formulate our request/ query
         $sql = 'SELECT * FROM UsersNestix';
         $users = $pdo->queryBDD($sql);
-        //we formulate our request/ query
+
+
+        //Display our database into a table
         foreach ($users as $row) {
             //we create the rows of the table with each returned value
             echo '<tr>';
-            echo '<td>' . $row['ID'] . '</td>';
+            echo '<td>' . $row['ID']. '</td>';
             echo '<td>' . $row['Firstname'] . '</td>';
             echo '<td>' . $row['Lastname'] . '</td>';
             echo '<td>' . $row['Username'] . '</td>';
@@ -51,15 +56,15 @@
 
             // add an another <td> for the edit button
             echo '<td>' .
-                '<a class="btn btn-primary" href="edit.php?id='.$row['id'].
+                '<a class="btn btn-primary" href="edit.php?id='.$row['ID'].
                 '">Read</a>';
             // add an another <td> for the update button
             echo '<a class="btn btn-success" href="update.php?id=' .
-                $row['id'] .
+                $row['ID'] .
                 '">Update</a>';
             // add an another <td> for the delete button
             echo '<a class="btn btn-danger" href="delete.php?id=' .
-                $row['id'] .
+                $row['ID'] .
                 ' ">Delete</a>';
         }
 
