@@ -61,8 +61,32 @@ class Connection
                 die($e->getMessage());
             }
         }
+        // echo'LOAD sucessful!';
         return $user;
     }
+
+    public function addUser($lastname,$firstname,$username,$email)
+    {
+        $user = '';
+        if (null !== self::$cont) {
+            try { 
+                $sql = 'INSERT INTO UsersNestix(Firstname,Lastname,Username,Email) VALUES(:Firstname, :Lastname, :Username, :Email)';
+                  $sth = self::$cont->prepare($sql);
+                  $sth->bindParam(':Firstname', $firstname);
+                  $sth->bindParam(':Lastname', $lastname);
+                  $sth->bindParam(':Username', $username);
+                  $sth->bindParam(':Email', $email);
+                  $sth->execute();
+                  $user = $sth->fetchAll();
+            } catch (PDOException $e) {
+                echo "Fetch failed: ";
+                die($e->getMessage());
+            }
+        }
+        // echo'ADD sucessful!';
+        return $user;
+    }
+
 
     public static function disconnect()
     {
