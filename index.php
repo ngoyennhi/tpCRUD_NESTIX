@@ -56,10 +56,10 @@
 
             // add an another <td> for the read button
             echo '<td>' .
-                '<a class="btn btn-primary" href="../vue/read.php?id='.$row['ID'].
+                '<a class="btn btn-primary" href="vue/read.php?id='.$row['ID'].
                 '">Read</a>';
             // add an another <td> for the update button
-            echo '<a class="btn btn-success" href="../vue/update.php?id=' .
+            echo '<a class="btn btn-success" href="vue/update.php?id=' .
                 $row['ID'] .
                 '">Update</a>';
             // add an another <td> for the delete button

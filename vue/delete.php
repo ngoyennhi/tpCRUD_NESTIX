@@ -8,7 +8,6 @@ if (is_int($id)) {
     $cont = new Connection();
     //we connect to database
     $cont->getConnection();
-    $sql = "DELETE FROM utilisateur WHERE ID = :id";
     $sth = $cont->deleteUser($id);
     // Success notice and the link comeback page index.php
     header('Location:../index.php');
