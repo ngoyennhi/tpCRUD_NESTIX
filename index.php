@@ -19,7 +19,7 @@
     <h2>Users</h2>
     </div>
     <div class="row">
-    <a href="add.php" class="btn btn-success">Add a user</a>
+    <a href="vue/add.php" class="btn btn-success">Add a user</a>
     </div>
     <div class="table-responsive">
       <table class="table table-hover table-bordered ">
@@ -54,20 +54,19 @@
             echo '<td>' . $row['Username'] . '</td>';
             echo '<td>' . $row['Email'] . '</td>';
 
-            // add an another <td> for the edit button
+            // add an another <td> for the read button
             echo '<td>' .
-                '<a class="btn btn-primary" href="edit.php?id='.$row['ID'].
+                '<a class="btn btn-primary" href="../vue/read.php?id='.$row['ID'].
                 '">Read</a>';
             // add an another <td> for the update button
-            echo '<a class="btn btn-success" href="update.php?id=' .
+            echo '<a class="btn btn-success" href="../vue/update.php?id=' .
                 $row['ID'] .
                 '">Update</a>';
             // add an another <td> for the delete button
-            echo '<a class="btn btn-danger" href="delete.php?id=' .
+            echo '<a class="btn btn-danger" href="vue/delete.php?id=' .
                 $row['ID'] .
                 ' ">Delete</a>';
         }
-
         $pdo->disconnect();
         ?>
         </tbody>

@@ -1,7 +1,7 @@
 <?php
 //mettre cet morceau de code pour savoir l'erreur si l'on a
 error_reporting(E_ALL);
-ini_set('display_errors','On');
+ini_set('display_errors', 'On');
 
 //l’appel à la base
 include '../model/connection.php';
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST)) {
     } elseif (strlen($lastname) > 255) {
         $lastnameError = 'Your last name is too long';
         $valid = false;
-    } 
+    }
 
     // check first name
     if (empty($firstname)) {
@@ -41,10 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST)) {
     } elseif (!preg_match('/^[a-zA-Z]/', $firstname)) {
         $firstnameError = 'Only letters and white space allowed';
         $valid = false;
-    }     elseif (strlen($firstname) > 255) {
-       $firstnameError = 'Your first name is too long';
-        $valid = false;   }
-   
+    } elseif (strlen($firstname) > 255) {
+        $firstnameError = 'Your first name is too long';
+        $valid = false;
+    }
 
     // check username
     if (empty($username)) {
@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST)) {
     } elseif (!preg_match('/^[0-9a-zA-Z]/', $username)) {
         $usernameError = 'Only letters and numbers allowed';
         $valid = false;
-    } 
+    }
 
     //check email
     if (empty($email)) {
@@ -62,21 +62,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST)) {
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $emailError = 'Please enter a valid Email Address';
         $valid = false;
-    } 
+    }
 
     // if the data is not NULL and $valid = TRUE, we connect to the database
-    if ($valid) {  
+    if ($valid) {
         //we include our connection file
         $cont = new Connection();
-         //we connect to database
+        //we connect to database
         $cont->getConnection();
-        $sth = $cont->addUser($firstname,$lastname,$username, $email);     
-       // Success notice and the link comeback page index.php
-        header("Location:form-merci.php");   
-    } else{
-               // UnSuccess notice and the link comeback page add.php with params
-               header("Location:../add.php?lastNameError=".$lastnameError."&firstNameError=".$firstnameError."&userNameError=".$usernameError."&emailError=".$emailError);  
-               
+        $sth = $cont->addUser($firstname, $lastname, $username, $email);
+        // Success notice and the link comeback page index.php
+        header('Location:form-merci.php');
+    } else {
+        // UnSuccess notice and the link comeback page add.php with params
+        header(
+            'Location:vue/add.php?lastNameError=' .
+                $lastnameError .
+                '&firstNameError=' .
+                $firstnameError .
+                '&userNameError=' .
+                $usernameError .
+                '&emailError=' .
+                $emailError
+        );
     }
 }
 ?>

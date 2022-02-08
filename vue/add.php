@@ -14,7 +14,7 @@ $emailError = filter_input(INPUT_GET,'emailError');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADD an user</title>
 
-    <!-- CSS only -->
+<!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -25,7 +25,7 @@ $emailError = filter_input(INPUT_GET,'emailError');
     <div class="container">
         <div class="row">
             <h3>Ajouter un contact</h3>
-            <form action="controller/c_add.php" method="post">       
+            <form action="../controller/c_add.php" method="post">       
                 <!-- last name -->
                 <div class="form-group">   
                                 <label class="control-label">Last Name</label>
@@ -71,7 +71,7 @@ $emailError = filter_input(INPUT_GET,'emailError');
                  <!-- SUBMIT or back -->
                 <div class="form-actions">
                     <input type="submit" class="btn btn-success" name="submit" value="submit">
-                    <a class="btn btn-warning" href="index.php">Retour</a>
+                    <a class="btn btn-warning" href="../index.php">Retour</a>
                 </div>
              </form>
         </div> 
