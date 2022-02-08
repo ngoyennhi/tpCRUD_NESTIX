@@ -16,9 +16,6 @@
      private static $dbUsername = 'root';
      private static $dbUserPassword = 'root';
 
-     private static $cont = null;
-
-  
      /**
       * function connect DB
       */

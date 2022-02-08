@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST)) {
     } else {
         // UnSuccess notice and the link comeback page add.php with params
         header(
-            'Location:vue/add.php?lastNameError=' .
+            'Location:../vue/add.php?lastNameError=' .
                 $lastnameError .
                 '&firstNameError=' .
                 $firstnameError .
