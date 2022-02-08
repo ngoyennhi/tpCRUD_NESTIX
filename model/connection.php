@@ -18,6 +18,10 @@
 
      private static $cont = null;
 
+  
+     /**
+      * function connect DB
+      */
      public static function connect()
      {
          try {
@@ -43,6 +47,10 @@
          }
      }
 
+       
+     /**
+      * function getconnect DB + verifier conntection
+      */
      public static function getConnection()
      {
          if (!isset(self::$cont)) {
@@ -51,6 +59,10 @@
          return self::$cont;
      }
 
+     /**
+      * function query BD 
+      * param : $sql syntax 
+      */
      public function queryBDD(string $sql)
      {
          $user = '';
@@ -69,6 +81,10 @@
          return $user;
      }
 
+    /**
+      * function add a new User into DB 
+      * param : $lastname, $firstname, $username, $email
+      */
      public function addUser($lastname, $firstname, $username, $email)
      {
          $user = '';
@@ -92,6 +108,11 @@
          return $user;
      }
 
+
+    /**
+      * function update a User 
+      * param : $id,$firstname, $lastname, $username, $email
+      */
      public function updateUser($id,$firstname, $lastname, $username, $email)
      {
          $user = '';
@@ -116,6 +137,10 @@
          return $user;
      }
 
+    /**
+      * function delete a User 
+      * param : $id
+      */
      public static function deleteUser($id){
         $user = '';
         if (null !== self::$cont) {
@@ -134,6 +159,10 @@
         return $user;
      }
      
+    /**
+      * function read info of a User 
+      * param : $id
+      */
      public static function readUser($id){
         $user = '';
         if (null !== self::$cont) {
@@ -152,6 +181,9 @@
         return $user;
      }
 
+    /**
+      * function disconnect DB 
+      */
      public static function disconnect()
      {
          self::$cont = null;
