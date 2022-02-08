@@ -8,13 +8,15 @@
  */ -->
  <?php
 class Connection
-{   /**
-    * Parameters to connect DB
+{   
+   /**
+    * Parameters to connect DB Server Local
     */
     private static $dbName = 'UsersNestixDB';
     private static $dbHost = 'localhost';
     private static $dbUsername = 'root';
     private static $dbUserPassword = "root";
+
     private static $cont = null;
 
     public static function connect()

@@ -1,3 +1,11 @@
+<?php
+// GET All errors if we have
+$lastnameError = filter_input(INPUT_GET,'lastNameError');
+$firstnameError = filter_input(INPUT_GET,'firstNameError');
+$usernameError = filter_input(INPUT_GET,'userNameError');
+$emailError = filter_input(INPUT_GET,'emailError');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +29,7 @@
                 <!-- last name -->
                 <div class="form-group">   
                                 <label class="control-label">Last Name</label>
-                                <input name="Lastname" type="text" placeholder="Lastname" value="<?php echo !empty($lastname)?$lastname:'';?>">
+                                <input name="Lastname"  class="form-control" type="text" placeholder="Lastname" value="<?php echo !empty($lastname)?$lastname:'';?>">
                                 <?php if (!empty($lastnameError)): ?>
                                     <span class="help-inline"><?php echo $lastnameError; ?></span>
                                 <?php endif; ?>
@@ -32,7 +40,7 @@
                 <!-- first name -->
                 <div class="form-group">   
                                 <label class="control-label">First Name</label>
-                                <input name="Firstname" type="text"  placeholder="Firstname" value="<?php echo !empty($firstname)?$firstname:'';?>">
+                                <input name="Firstname" class="form-control" type="text"  placeholder="Firstname" value="<?php echo !empty($firstname)?$firstname:'';?>">
                                 <?php if (!empty($firstnameError)): ?>
                                     <span class="help-inline"><?php echo $firstnameError;?></span>
                                 <?php endif; ?>
@@ -43,7 +51,7 @@
                 <!-- username -->
                 <div class="form-group">   
                                 <label class="control-label">User Name</label>
-                                <input name="Username" type="text"  placeholder="Nhi123" value="<?php echo !empty($username)?$username:'';?>">
+                                <input name="Username" class="form-control" type="text"  placeholder="Nhi123" value="<?php echo !empty($username)?$username:'';?>">
                                 <?php if (!empty($usernameError)): ?>
                                     <span class="help-inline"><?php echo $usernameError; ?></span>
                                 <?php endif; ?>
@@ -53,12 +61,8 @@
 
                 <!-- email -->
                 <div class="form-group">   
-                                <label class="control-label">Email</label>
-                                <input name="Email" type="text"  placeholder="Nhi123@gmail.com" value="<?php echo !empty(
-                                    $email
-                                )
-                                    ? $email
-                                    : ''; ?>">
+                                <label for="exampleFormControlInput1">Email address</label>
+                                <input name="Email" class="form-control" type="text"  placeholder="Nhi123@gmail.com" value="<?php echo !empty($email)?$email:'';?>">
                                 <?php if (!empty($emailError)): ?>
                                     <span class="help-inline"><?php echo $emailError; ?></span>
                                 <?php endif; ?>

@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST)) {
     $email = htmlentities(trim($_POST['Email']));
 
     // we check our fields $valid = true;
+    $valid = true;
     // check last name
     if (empty($lastname)) {
         $lastnameError = 'Please enter the last name of your new user';
@@ -31,9 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST)) {
     } elseif (strlen($lastname) > 255) {
         $lastnameError = 'Your last name is too long';
         $valid = false;
-    } else {
-        $valid = true;
-    }
+    } 
 
     // check first name
     if (empty($firstname)) {
@@ -45,9 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST)) {
     }     elseif (strlen($firstname) > 255) {
        $firstnameError = 'Your first name is too long';
         $valid = false;   }
-    else {
-        $valid = true;
-    }
+   
 
     // check username
     if (empty($username)) {
@@ -56,9 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST)) {
     } elseif (!preg_match('/^[0-9a-zA-Z]/', $username)) {
         $usernameError = 'Only letters and numbers allowed';
         $valid = false;
-    } else {
-        $valid = true;
-    }
+    } 
 
     //check email
     if (empty($email)) {
@@ -67,9 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST)) {
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $emailError = 'Please enter a valid Email Address';
         $valid = false;
-    } else {
-        $valid = true;
-    }
+    } 
 
     // if the data is not NULL and $valid = TRUE, we connect to the database
     if ($valid) {  
@@ -80,6 +73,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST)) {
         $sth = $cont->addUser($firstname,$lastname,$username, $email);     
        // Success notice and the link comeback page index.php
         header("Location:form-merci.php");   
-    } 
+    } else{
+               // UnSuccess notice and the link comeback page add.php with params
+               header("Location:../add.php?lastNameError=".$lastnameError."&firstNameError=".$firstnameError."&userNameError=".$usernameError."&emailError=".$emailError);  
+               
+    }
 }
 ?>
