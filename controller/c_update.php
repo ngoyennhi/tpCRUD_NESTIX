@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST)) {
         $cont = new Connection();
         //we connect to database
         $cont->getConnection();
-        $sth = $cont->updateUser($id,$firstname, $lastname, $username, $email);
+        $sth = $cont->updateUser($id,$firstname,$lastname,$username,$email);
         // Success notice and the link comeback page index.php
         header('Location:form-merci.php');
     } else {

@@ -1,5 +1,4 @@
 <?php
-
 // GET All errors if we have
 $lastnameError = filter_input(INPUT_GET,'lastNameError');
 $firstnameError = filter_input(INPUT_GET,'firstNameError');
@@ -15,7 +14,7 @@ $id = filter_input(INPUT_GET,'id',FILTER_VALIDATE_INT);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADD an user</title>
+    <title>UPDATE an user</title>
 
 <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -27,8 +26,9 @@ $id = filter_input(INPUT_GET,'id',FILTER_VALIDATE_INT);
 <body>
     <div class="container">
         <div class="row">
-            <h3>Ajouter un contact</h3>
-            <form action="../controller/c_update.php" method="post">       
+            <h3>UPDATE an user</h3>
+            <!-- notice: we need to add value of id into url to get it after ( in traitement ) -->
+            <form action="../controller/c_update.php?id=<?= $id ?>" method="post">       
                 <!-- last name -->
                 <div class="form-group">   
                                 <label class="control-label">Last Name</label>

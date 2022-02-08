@@ -4,6 +4,9 @@ $lastnameError = filter_input(INPUT_GET,'lastNameError');
 $firstnameError = filter_input(INPUT_GET,'firstNameError');
 $usernameError = filter_input(INPUT_GET,'userNameError');
 $emailError = filter_input(INPUT_GET,'emailError');
+// get value of id form URL
+$id = filter_input(INPUT_GET,'id',FILTER_VALIDATE_INT);
+
 ?>
 
 <!DOCTYPE html>

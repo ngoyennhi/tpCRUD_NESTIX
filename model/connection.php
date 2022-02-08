@@ -98,7 +98,7 @@
          if (null !== self::$cont) {
              try {
                  $sql =
-                     'UPDATE UsersNestix(Firstname,Lastname,Username,Email) VALUES(:Firstname, :Lastname, :Username, :Email) WHERE ID = :id' ;
+                     "UPDATE UsersNestix SET Firstname = :Firstname,Lastname = :Lastname,Username = :Username,Email=:Email WHERE ID = :id";
                  $sth = self::$cont->prepare($sql);
                  $sth->bindParam(':id', $id);
                  $sth->bindParam(':Firstname', $firstname);

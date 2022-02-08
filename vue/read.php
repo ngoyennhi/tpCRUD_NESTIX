@@ -29,7 +29,7 @@ $users = $pdo->readUser($id);
 <body>
   <div class="container">
     <div class="row">
-    <h2>Users</h2>
+    <h2>Users selected by ID</h2>
     </div>
     <div class="table-responsive">
       <table class="table table-hover table-bordered ">
